@@ -2634,7 +2634,7 @@ header{
   font-family: "Poppins", sans-serif;
   font-size: 19px;
   font-weight: 300;
-  
+  z-index: 1;
 }
 .menu-nav ul{ /* estilização da lista*/
   display:flex;
@@ -2760,7 +2760,7 @@ body{
   font-family: "Lato", sans-serif;
   padding: 10px;
   width: 95%;
-  height: 900px;
+  height: 100%;
   border-radius: 10px;
   color: #f6f6f6;
   margin-top: 30px;
@@ -2962,7 +2962,11 @@ a span{
   flex-direction: row;
   box-shadow: 4px 4px var(--main-color);
 }
+main img {
+  width: 175px;
+  height:175px;
 
+}
 .option {
   width: 80.5px;
   height: 28px;

@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "home":"url('/assets/a.jpg')"
+        "home":"url('/img/Essência-Gourmet2.png')"
       },
       fontFamily: {
         lato: ['Lato', 'sans-serif'],

@@ -15,9 +15,7 @@ body{
     background-attachment: fixed;
     background-size: cover;
 }
-main{
 
-}
  /*Estilização do menu de navegação*/
 .logotipo-svg{ /* estilização da posição e tamanho da logo */
     width: 23rem;
