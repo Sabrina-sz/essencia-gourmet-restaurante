@@ -9,7 +9,7 @@ O *Essência Gourmet* é um projeto acadêmico desenvolvido em grupo para a facu
 - **Apresentação do Restaurante**: Uma página inicial com informações sobre o restaurante e seu conceito.
 - **Menu**: Exibição do cardápio com pratos, descrições e preços.
 - **Reserva de Mesas**: Um formulário simples para os usuários fazerem reservas diretamente pelo site.
-- **Contato**: Uma página com formulário de contato e localização no mapa.
+- **Rodapé**: aréa com as informações, contato e localização no mapa.
 - **Interatividade no Cardápio**: Escolha de pratos, quantidade, valor total e formas de pagamento.
 - **Efeitos Visuais**: Transições e animações aplicadas na página principal e rodapé.
 
