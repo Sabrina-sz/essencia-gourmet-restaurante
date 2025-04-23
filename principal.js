@@ -1,10 +1,10 @@
 const btnOpen = document.querySelector(".btn-open");
 const btnClose = document.querySelector(".btn-close");
-const menu = document.querySelector(".menu-nav-list ul");
+const menuUl = document.querySelector(".menu-nav-list ul");
 const html = document.querySelector("html");
 
 btnOpen.addEventListener("click", () => {
-  menu.style.display = "flex";
+  menuUl.style.display = "flex";
   btnOpen.classList.remove("active");
   btnOpen.style.display = "none";
   btnClose.style.display = "inline-block";
@@ -13,7 +13,7 @@ btnOpen.addEventListener("click", () => {
 });
 
 btnClose.addEventListener("click", () => {
-  menu.style.display = "none";
+  menuUl.style.display = "none";
   btnClose.classList.remove("active");
   btnClose.style.display = "none";
   btnOpen.style.display = "inline-block";
