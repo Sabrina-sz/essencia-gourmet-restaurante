@@ -1,247 +1,327 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
-:root{
-    font-size: 62.4% ;
+:root {
+  font-size: 62.4%;
 }
 /*Imagem de fundo da pagina*/
-body{
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(../img/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 20%;
+  background-attachment: fixed;
+  background-size: cover;
+}
+/*Estilização do menu de navegação*/
+.logotipo-svg {
+  /* estilização da posição e tamanho da logo */
+  width: 13rem;
+}
+.menu-nav {
+  /* Estilização do menu de navegação*/
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 2rem;
+  height: 8rem;
+  width: 100%;
+  font-size: 1.6rem;
+  background-color: #2f2f2f;
+  color: aliceblue;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  border-bottom: gray;
+  z-index: 1;
+}
+.menu-nav ul {
+  /* estilização da lista*/
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  list-style: none;
+  z-index: 10;
+  background: black;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  gap: 3rem;
+  position: absolute;
+  left: 0;
+}
 
-    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(../img/bg.jpg);
-    background-repeat: no-repeat;
-    background-position: 50% 20%;
-    background-attachment: fixed;
-    background-size: cover;
+button.btn-close {
+  display: none;
 }
- /*Estilização do menu de navegação*/
-.logotipo-svg{ /* estilização da posição e tamanho da logo */
-    width: 23rem;
-    height: 23rem;
+
+button.btn-close {
+  position: relative;
+  z-index: 10;
 }
-.menu-nav{ /* Estilização do menu de navegação*/
-    position: fixed;
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    padding-inline: 9.0rem;
-    height: 8.0rem;
-    width: 100%;
-    font-size:1.6rem;  
-    background-color: #2f2f2f;
-    color: aliceblue;
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    border-bottom: gray;
-    z-index: 1;
+
+button.btn-open,
+button.btn-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
-.menu-nav ul{ /* estilização da lista*/
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    height: 1.2rem;
-    gap:3rem ;
-    position: absolute;
-    right: 0;
-    left: 0;
+
+button.btn-open svg,
+button.btn-close svg {
+  width: 3rem;
+  height: 3rem;
 }
-.menu-nav-itens{
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 7rem;  
+
+button.btn-open svg path,
+button.btn-close svg path {
+  stroke: #ffffff;
+  fill: #ffffff;
 }
-.menu-nav-list a{ /* estlização da ancora(a) */
-    font-weight: 400;
-    text-decoration: none;
-    color: #f6f6f6f6;
-    position: relative;
-    font-size: 2rem;
+
+.menu-nav-itens {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
-.menu-nav-list li a::after{/* adiciona um efito de borda inferior ao passar o mouse em cima dos elementos do menu de navegação*/
-    content: " ";
-    width: 0%;
-    height: 2px;
-    background-color: #DEB887;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: 0.5s ease-in;
+.menu-nav-list a {
+  /* estlização da ancora(a) */
+  font-weight: 400;
+  text-decoration: none;
+  color: #f6f6f6f6;
+  position: relative;
+  font-size: 2rem;
 }
-.menu-nav-list li a:hover::after{ /* largura da borda interior de acordo com a largurar maxima dos elementos ancora e lista*/
-    width: 100%;
+.menu-nav-list li a::after {
+  /* adiciona um efito de borda inferior ao passar o mouse em cima dos elementos do menu de navegação*/
+  content: " ";
+  width: 0%;
+  height: 2px;
+  background-color: #deb887;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: 0.5s ease-in;
 }
-.menu-nav-list a:hover{/* transição que muda de cor as paslvras do menu de navegção*/
-    transition-property: color;
-    transition-duration: 1s;
-    color: #DEB887;
+.menu-nav-list li a:hover::after {
+  /* largura da borda interior de acordo com a largurar maxima dos elementos ancora e lista*/
+  width: 100%;
+}
+.menu-nav-list a:hover {
+  /* transição que muda de cor as paslvras do menu de navegção*/
+  transition-property: color;
+  transition-duration: 1s;
+  color: #deb887;
 }
 /* Estilização do botão de reserva */
-.botao-reserva{ 
-    background-color: transparent;
-    border-radius: 6rem;
-    border: .1rem solid #DEB887;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    height: 4.5rem;
-    width: 4.5rem;
-    position: absolute;
-    transition-duration: 1s;  
+.botao-reserva {
+  background-color: transparent;
+  border-radius: 6rem;
+  border: 0.1rem solid #deb887;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4.5rem;
+  width: 4.5rem;
+  position: relative;
+  transition-duration: 1s;
 }
-.botao-reserva:hover{/*ao passa o mouse por cima vai ter um efeito que o botão vai se expandir pros lados */
-    width: 10rem;
+.botao-reserva:hover {
+  /*ao passa o mouse por cima vai ter um efeito que o botão vai se expandir pros lados */
+  width: 10rem;
 }
-a span{
-    position: absolute;
+a span {
+  position: absolute;
 }
-.icone-reserva{/* Estilização do icone do botão de reserva*/
-    height: 3rem;
-    width: 3rem;
-    transition: 1s;  
+.icone-reserva {
+  /* Estilização do icone do botão de reserva*/
+  height: 3rem;
+  width: 3rem;
+  transition: 1s;
 }
-.text-reserva{/* estilização da palavra reserva e com trasnforme para palavra sumir e só aparecer quando passar o mouse em cima do botão */
-    color: #f6f6f6;
-    font-size: 1.8rem;
-    transform: scale(0);
-    transition: 1s;
+.text-reserva {
+  /* estilização da palavra reserva e com trasnforme para palavra sumir e só aparecer quando passar o mouse em cima do botão */
+  color: #f6f6f6;
+  font-size: 1.8rem;
+  transform: scale(0);
+  transition: 1s;
 }
-.botao-reserva:hover .text-reserva{/* Efeito que faz a plavra reserva apaercer quando passar p mouse por cima do botão */
-    transition-property:all;
-    transition: 1s;
-    color: #DEB887;
-    transform: scale(1);
-    transition-delay: 0.1s;
+.botao-reserva:hover .text-reserva {
+  /* Efeito que faz a plavra reserva apaercer quando passar p mouse por cima do botão */
+  transition-property: all;
+  transition: 1s;
+  color: #deb887;
+  transform: scale(1);
+  transition-delay: 0.1s;
 }
-.botao-reserva:hover .icone-reserva{/* transform para fazer o icone sumir pra a palavra reserva aparecer*/
-    transform: scale(0);
+.botao-reserva:hover .icone-reserva {
+  /* transform para fazer o icone sumir pra a palavra reserva aparecer*/
+  transform: scale(0);
 }
 /* fim da estilização do menu de navegção */
 
 /* Conteúdo da pagina inicial */
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-main{
-    height: 100vh;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 80px;
-    gap: 60px;
-    
+main {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  align-items: center;
+  padding-top: 8rem;
+  gap: 6rem;
 }
-    
 
-.img img{
-   height: 500px;
-    width:500px;
-    border-radius: 3px;
+.img img {
+  object-fit: cover;
+  height: 100vh;
+  width: 100%;
+  border-radius: 3px;
 }
 h1 {
-    color:#DEB887;
+  color: #deb887;
 }
 .text {
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    color:#f6f6f6;
-    text-align: center;
-    width: 50%;
-    padding: 10px;
-   
+  font-family: "Poppins", sans-serif;
+  gap: 1rem;
+  font-size: 16px;
+  font-weight: 300;
+  color: #f6f6f6;
+  text-align: justify;
+  width: fit-content;
+  padding: 10px;
 }
 strong {
-    color:#DEB887;
+  color: #deb887;
 }
-footer{
-    background-color: #2f2f2f;
-    color: #f6f6f6;
+footer {
+  background-color: #2f2f2f;
+  color: #f6f6f6;
+  position: relative;
+  padding-top: 2rem;
+  padding: 2rem 5rem 0.2rem 5rem;
+  text-align: center;
+  height: auto;
+}
+.footer-img img {
+  width: 13rem;
+}
+.linha-footer1 .box-linha-footer h3 {
+  color: #deb887;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  font-family: "Lato", sans-serif;
+}
+
+footer .linha-footer1 {
+  border-block: 1px solid #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.2rem;
+  padding: 3rem 5rem 1rem 5rem;
+}
+footer .linha-footer1 .box-linha-footer {
+  width: auto;
+}
+.linha-footer2 {
+  text-align: center;
+  padding: 0.5rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+.linha-footer1 .box-linha-footer a {
+  height: 2rem;
+  text-decoration: none;
+  display: block;
+  color: #f6f6f6;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+.links-footer a:hover {
+  color: #deb887;
+  transition: 1s;
+}
+.box-linha-footer .btn-redes a {
+  display: inline;
+}
+.box-linha-footer p {
+  height: 2rem;
+  font-size: 1.4rem;
+  font-family: "Lato", sans-serif;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.box-linha-footer .btn-redes button {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.4rem;
+  font-size: 1.4rem;
+  background-color: transparent;
+  border: 0.1rem solid #f6f6f6;
+  color: #f6f6f6;
+  cursor: pointer;
+  margin-right: 0.2rem;
+  transition: 0.9s;
+}
+.box-linha-footer .btn-redes button:hover {
+  background-color: #deb887;
+  border-color: #deb887;
+}
+.box-linha-footer iframe {
+  width: 13rem;
+  height: 11rem;
+  border-radius: 0.4rem;
+}
+
+/* Telas */
+
+@media (min-width: 1000px) {
+  main {
+    flex-direction: row-reverse;
+    padding-inline: 2rem;
+
+    gap: 2rem;
+  }
+
+  footer .linha-footer1 {
+    flex-direction: row;
+  }
+
+  .img img {
+    object-fit: contain;
+  }
+
+  .text {
+    font-size: 2.5rem;
+  }
+
+  .text h1,
+  .text p {
+    text-align: left;
+  }
+
+  .menu-nav ul {
     position: relative;
-    padding-top: 2rem;
-    padding: 2rem 5rem .2rem 5rem;
-    text-align: center;
-    height: 25rem;
- }
- .footer-img img{
-     width: 13rem;
-     position: absolute;
-     left: 5rem;
-     top: 0;
-     bottom: 1rem;
- }
- .linha-footer1 .box-linha-footer h3{
-     color: #DEB887;
-     margin-bottom: 1rem;
-     font-size: 1.7rem;
-     font-family: "Lato", sans-serif;
- }
- 
- footer .linha-footer1{
-     border-block: 1px solid #f6f6f6;
-     display: flex;
-     justify-content:center ; 
-     gap: 6.2rem;
-    padding: 3rem 5rem 1rem 5rem;
- }
- footer .linha-footer1 .box-linha-footer{
-     width: 10%;
- }
- .linha-footer2{
-     text-align: center;
-     padding: .5rem;
-     font-family: "Lato", sans-serif;
-     font-weight: 400;
-     font-size: 1.4rem;  
- }
- .linha-footer1 .box-linha-footer a{
-     height: 2rem;
-     text-decoration: none;
-     display: block;
-     color: #f6f6f6;
-     margin-bottom: 1rem;
-     font-size: 1.2rem;
-     font-weight: 400;
-     font-family: "Poppins", sans-serif;
- }
- .links-footer a:hover{
-     color:#DEB887;
-     transition:1s;
- 
- }
- .box-linha-footer .btn-redes a{
-     display: inline;
- }
- .box-linha-footer p{
-     height: 2rem;
-     font-size: 1.4rem;
-     font-family: "Lato", sans-serif;
-     margin-bottom: 2rem;
-     text-align: center;
- }
- .box-linha-footer .btn-redes button{
-     width: 3rem;
-     height: 3rem;
-     border-radius: .4rem;
-     font-size: 1.4rem;
-     background-color: transparent;
-     border: .1rem solid #f6f6f6;
-     color: #f6f6f6;
-     cursor: pointer;
-     margin-right: .2rem;
-     transition: 0.9s;
- }
- .box-linha-footer .btn-redes button:hover{
-     background-color: #DEB887;
-     border-color: #DEB887;
- }
- .box-linha-footer iframe{
-     width: 13rem;
-     height: 11rem;
-     border-radius:.4rem;
- }
- 
+    z-index: 0;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    background: initial;
+  }
+
+  .btn-open,.btn-close{
+    display: none;
+  }
+}
