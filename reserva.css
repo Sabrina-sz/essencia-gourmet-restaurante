@@ -39,6 +39,7 @@ body {
   font-weight: 300;
   border-bottom: gray;
   z-index: 1;
+  gap: 1rem;
 }
 .menu-nav ul {
   /* estilização da lista*/
@@ -88,8 +89,9 @@ button.btn-close svg path {
 .menu-nav-itens {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
+  width: 100%;
   gap: 1.2rem;
 }
 .menu-nav-list a {
@@ -187,7 +189,7 @@ form {
   /* background-image: url(../img/image.jfif); */
   background-position: center;
   background-blend-mode: color-burn;
-  padding: 4rem;
+  padding: 2.5rem;
   border-radius: 2rem;
   margin-block: 4rem;
 }
@@ -304,6 +306,15 @@ footer .linha-footer1 .box-linha-footer {
 }
 
 @media (min-width: 1000px) {
+  .menu-nav-itens {
+    position: relative;
+  }
+  .botao-reserva {
+    position: absolute;
+  }
+  .menu-nav-list {
+    width: 100%;
+  }
   .menu-nav ul {
     position: relative;
     z-index: 0;
@@ -311,10 +322,15 @@ footer .linha-footer1 .box-linha-footer {
     flex-direction: row;
     height: auto;
     background: initial;
+    width: 92%;
   }
   .btn-close,
   .btn-open {
     display: none;
+  }
+
+  form {
+    padding: 4rem;
   }
 
   footer .linha-footer1 {
