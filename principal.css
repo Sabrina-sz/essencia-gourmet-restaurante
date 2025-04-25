@@ -40,6 +40,7 @@ svg.logotipo-svg {
   font-weight: 300;
   border-bottom: gray;
   z-index: 1;
+  gap: 1rem;
 }
 
 button.btn-close {
@@ -88,9 +89,10 @@ button.btn-close svg path {
 .menu-nav-itens {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   gap: 1rem;
+  width: 100%;
 }
 .menu-nav-list a {
   /* estlização da ancora(a) */
@@ -180,11 +182,12 @@ main {
   /* Estilizção da primeira seção da pagina */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: #2f2f2f;
   padding: 2rem;
   width: 100%;
+  height: 100vh;
   gap: 5rem;
   position: relative;
 }
@@ -371,10 +374,8 @@ figcaption h3 {
   margin-bottom: 0.5rem;
 }
 .carrosel {
-  margin-inline: 1rem;
-  margin-top: 1.5rem;
   width: 100%;
-  height: 55rem;
+  height: 65vw;
   animation: change 6s step-start infinite alternate-reverse;
   background-size: cover;
   background-repeat: no-repeat;
@@ -445,10 +446,10 @@ figcaption h3 {
 .cupons-desconto img {
   width: 100%;
   box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s;
 }
 .cupons-desconto img:hover {
   transform: scale(1.05);
-  transition: 0.5s;
 }
 .interface {
   max-width: 100%;
@@ -552,8 +553,8 @@ footer .linha-footer1 .box-linha-footer {
 
   .inicio-bv {
     height: 100vh;
-    align-items: initial;
-    flex-direction: row;
+    align-items: center;
+    flex-direction: column;
   }
 
   .img-pratos-rj {
@@ -565,6 +566,7 @@ footer .linha-footer1 .box-linha-footer {
   }
   .introducao-bv {
     padding: 0;
+    text-align: center;
     justify-content: center;
   }
 
@@ -612,8 +614,17 @@ footer .linha-footer1 .box-linha-footer {
 }
 
 @media (min-width: 1000px) {
+  .menu-nav-itens {
+    position: relative;
+  }
+  .botao-reserva {
+    position: absolute;
+  }
+  .menu-nav-list {
+    width: 100%;
+  }
   .carrosel {
-    height: 75rem;
+    height: 80%;
   }
 
   .texto-img-titulo h1 {
@@ -627,6 +638,10 @@ footer .linha-footer1 .box-linha-footer {
     height: auto;
   }
 
+  .introducao-bv p {
+    width: 75rem;
+  }
+
   .img-pratos-rj {
     width: 70rem;
   }
@@ -637,6 +652,7 @@ footer .linha-footer1 .box-linha-footer {
 
   footer .linha-footer1 {
     flex-direction: row;
+    align-items: center;
   }
 
   .menu-nav ul {
@@ -646,6 +662,7 @@ footer .linha-footer1 .box-linha-footer {
     flex-direction: row;
     height: auto;
     background: initial;
+    width: 92%;
   }
   .btn-close,
   .btn-open {

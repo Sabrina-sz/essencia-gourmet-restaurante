@@ -22,6 +22,15 @@ btnClose.addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+   ScrollReveal().reveal(".inicio-pagina", {
+     distance: "100px",
+     origin: "top",
+     opcity: 0,
+     duration: 1400,
+     reset: false,
+     easing: "ease-in-out",
+     interval: 100,
+   });
   ScrollReveal().reveal(".inicio-bv", {
     distance: "100px",
     origin: "left",
