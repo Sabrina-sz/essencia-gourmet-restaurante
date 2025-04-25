@@ -2713,7 +2713,7 @@ video {
   forced-color-adjust: none;
 }
 header {
-  margin-top: 7rem;
+  margin-top: 5rem;
   height: 500px;
   padding: 10px;
 }
@@ -2727,8 +2727,8 @@ div h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-inline: 2rem;
-  height: 8rem;
+  padding-inline: 1.25rem;
+  height: 5rem;
   width: 100%;
   font-size: 1.6rem;
   background-color: #2f2f2f;
@@ -2737,6 +2737,7 @@ div h1 {
   font-weight: 300;
   border-bottom: gray;
   z-index: 1;
+  gap: 1rem;
 }
 .menu-nav ul {
   /* estilização da lista*/
@@ -2866,23 +2867,6 @@ body {
   /* estilização da posição e tamanho da logo */
   width: 8rem;
 }
-.menu-nav {
-  /* Estilização do menu de navegação*/
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-inline: 1.248rem;
-  height: 8rem;
-  width: 100%;
-  font-size: 1.6rem;
-  background-color: #2f2f2f;
-  color: aliceblue;
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-  border-bottom: gray;
-  z-index: 1;
-}
 
 button.btn-close {
   display: none;
@@ -2926,13 +2910,15 @@ button.btn-close svg path {
   gap: 3rem;
   position: absolute;
   left: 0;
+  gap: 1rem;
 }
 .menu-nav-itens {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
-  gap: 1rem;
+  gap: 5px;
+  width: 100%;
 }
 .menu-nav-itens a {
   font-weight: 400;
@@ -3211,6 +3197,18 @@ main img {
 }
 
 @media (min-width: 1000px) {
+  .menu-nav-itens {
+    position: relative;
+  }
+  .botao-reserva {
+    position: absolute;
+  }
+  .menu-nav-list {
+    width: 100%;
+  }
+  .menu-nav {
+    gap: 1rem;
+  }
   .menu-nav ul {
     position: relative;
     z-index: 0;
@@ -3219,6 +3217,7 @@ main img {
     height: auto;
     background: initial;
     gap: 1rem;
+    width: 92%;
   }
   .btn-close,
   .btn-open {
