@@ -24,7 +24,7 @@ body {
   /* Estilização do menu de navegação*/
   position: fixed;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding-inline: 2rem;
   height: 8rem;
@@ -85,8 +85,9 @@ button.btn-close svg path {
 .menu-nav-itens {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
+  width: 100%;
   gap: 1rem;
 }
 .menu-nav-list a {
@@ -177,12 +178,12 @@ main {
   flex-direction: column-reverse;
   align-items: center;
   padding-top: 8rem;
-  gap: 6rem;
+  gap: 1rem;
 }
 
 .img img {
   object-fit: cover;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   border-radius: 3px;
 }
@@ -288,18 +289,29 @@ footer .linha-footer1 .box-linha-footer {
 /* Telas */
 
 @media (min-width: 1000px) {
+  .menu-nav-itens {
+    position: relative;
+  }
+  .botao-reserva {
+    position: absolute;
+  }
+  .menu-nav-list {
+    width: 100%;
+  }
   main {
     flex-direction: row-reverse;
     padding-inline: 2rem;
-
     gap: 2rem;
   }
 
   footer .linha-footer1 {
     flex-direction: row;
+    align-items: center;
   }
 
   .img img {
+    height: 100vh;
+
     object-fit: contain;
   }
 
@@ -319,9 +331,11 @@ footer .linha-footer1 .box-linha-footer {
     flex-direction: row;
     height: auto;
     background: initial;
+    width: 92%;
   }
 
-  .btn-open,.btn-close{
+  .btn-open,
+  .btn-close {
     display: none;
   }
 }
