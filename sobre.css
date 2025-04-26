@@ -289,6 +289,10 @@ footer .linha-footer1 .box-linha-footer {
 /* Telas */
 
 @media (min-width: 1000px) {
+  .menu-nav {
+    padding-inline: 4rem;
+    gap: 0rem;
+  }
   .menu-nav-itens {
     position: relative;
   }

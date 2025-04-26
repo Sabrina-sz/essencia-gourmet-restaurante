@@ -3197,6 +3197,10 @@ main img {
 }
 
 @media (min-width: 1000px) {
+  .menu-nav {
+    padding-inline: 2rem;
+    gap: 0rem;
+  }
   .menu-nav-itens {
     position: relative;
   }
@@ -3206,9 +3210,7 @@ main img {
   .menu-nav-list {
     width: 100%;
   }
-  .menu-nav {
-    gap: 1rem;
-  }
+
   .menu-nav ul {
     position: relative;
     z-index: 0;
@@ -3216,7 +3218,7 @@ main img {
     flex-direction: row;
     height: auto;
     background: initial;
-    gap: 1rem;
+    gap: 2rem;
     width: 92%;
   }
   .btn-close,
