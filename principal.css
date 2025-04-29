@@ -1,491 +1,676 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
-:root{
-    font-size: 62.4% ;
+:root {
+  font-size: 62.4%;
 }
-html{
-    overflow-x: hidden;
+html {
+  overflow-x: hidden;
 }
 /*Imagem de fundo da pagina*/
-body{
-    height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../img/bg.jpg);
-    background-repeat: no-repeat;
-    background-position: 50% 20%;
-    background-attachment: fixed;
-    background-size: cover;
+body {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../img/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 20%;
+  background-attachment: fixed;
+  background-size: cover;
 }
- /*Estilização do menu de navegação*/
-.logotipo-svg{ /* estilização da posição e tamanho da logo */
-    width: 23rem;
-    height: 23rem;
+/*Estilização do menu de navegação*/
+svg.logotipo-svg {
+  /* estilização da posição e tamanho da logo */
+  width: 13rem;
 }
-.menu-nav{ /* Estilização do menu de navegação*/
-    position: fixed;
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    padding-inline: 9.0rem;
-    height: 8.0rem;
-    width: 100%;
-    font-size:1.6rem;  
-    background-color: #2f2f2f;
-    color: aliceblue;
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    border-bottom: gray;
-    z-index: 1;
+.menu-nav {
+  /* Estilização do menu de navegação*/
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 2rem;
+  height: 8rem;
+  width: 100%;
+  font-size: 1.6rem;
+  background-color: #2f2f2f;
+  color: aliceblue;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  border-bottom: gray;
+  z-index: 1;
+  gap: 1rem;
 }
-.menu-nav ul{ /* estilização da lista*/
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    height: 1.2rem;
-    gap:3rem ;
-    position: absolute;
-    right: 0;
-    left: 0;
+
+button.btn-close {
+  display: none;
 }
-.menu-nav-itens{
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 7rem;  
+
+button.btn-close {
+  position: relative;
+  z-index: 10;
 }
-.menu-nav-list a{ /* estlização da ancora(a) */
-    font-weight: 400;
-    text-decoration: none;
-    color: #f6f6f6f6;
-    position: relative;
-    font-size: 2rem;
+
+button.btn-open,
+button.btn-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
-.menu-nav-list li a::after{/* adiciona um efito de borda inferior ao passar o mouse em cima dos elementos do menu de navegação*/
-    content: " ";
-    width: 0%;
-    height: .2rem;
-    background-color: #DEB887;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: 0.5s ease-in;
+
+button.btn-open svg,
+button.btn-close svg {
+  width: 3rem;
+  height: 3rem;
 }
-.menu-nav-list li a:hover::after{ /* largura da borda interior de acordo com a largurar maxima dos elementos ancora e lista*/
-    width: 100%;
+
+button.btn-open svg path,
+button.btn-close svg path {
+  stroke: #ffffff;
+  fill: #ffffff;
 }
-.menu-nav-list a:hover{/* transição que muda de cor as paslvras do menu de navegção*/
-    transition-property: color;
-    transition-duration: 1s;
-    color: #DEB887;
+.menu-nav ul {
+  /* estilização da lista*/
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  list-style: none;
+  z-index: 10;
+  background: black;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  gap: 3rem;
+  position: absolute;
+  left: 0;
+}
+.menu-nav-itens {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+.menu-nav-list a {
+  /* estlização da ancora(a) */
+  font-weight: 400;
+  text-decoration: none;
+  color: #f6f6f6f6;
+  position: relative;
+  font-size: 2rem;
+}
+.menu-nav-list li a::after {
+  /* adiciona um efito de borda inferior ao passar o mouse em cima dos elementos do menu de navegação*/
+  content: " ";
+  width: 0%;
+  height: 0.2rem;
+  background-color: #deb887;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: 0.5s ease-in;
+}
+.menu-nav-list li a:hover::after {
+  /* largura da borda interior de acordo com a largurar maxima dos elementos ancora e lista*/
+  width: 100%;
+}
+.menu-nav-list a:hover {
+  /* transição que muda de cor as paslvras do menu de navegção*/
+  transition-property: color;
+  transition-duration: 1s;
+  color: #deb887;
 }
 /* Estilização do botão de reserva */
-.botao-reserva{ 
-    background-color: transparent;
-    border-radius: 6rem;
-    border: .1rem solid #DEB887;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    height: 4.5rem;
-    width: 4.5rem;
-    position: absolute;
-    transition-duration: 1s;  
+.botao-reserva {
+  background-color: transparent;
+  border-radius: 6rem;
+  border: 0.1rem solid #deb887;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4.5rem;
+  width: 4.5rem;
+  transition-duration: 1s;
 }
-.botao-reserva:hover{/*ao passa o mouse por cima vai ter um efeito que o botão vai se expandir pros lados */
-    width: 10rem;
+.botao-reserva:hover {
+  /*ao passa o mouse por cima vai ter um efeito que o botão vai se expandir pros lados */
+  width: 10rem;
 }
-a span{
-    position: absolute;
+a span {
+  position: absolute;
 }
-.icone-reserva{/* Estilização do icone do botão de reserva*/
-    height: 3rem;
-    width: 3rem;
-    transition: 1s;  
+.icone-reserva {
+  /* Estilização do icone do botão de reserva*/
+  height: 3rem;
+  width: 3rem;
+  transition: 1s;
 }
-.text-reserva{/* estilização da palavra reserva e com trasnforme para palavra sumir e só aparecer quando passar o mouse em cima do botão */
-    color: #f6f6f6;
-    font-size: 1.8rem;
-    transform: scale(0);
-    transition: 1s;
+.text-reserva {
+  /* estilização da palavra reserva e com trasnforme para palavra sumir e só aparecer quando passar o mouse em cima do botão */
+  color: #f6f6f6;
+  font-size: 1.8rem;
+  transform: scale(0);
+  transition: 1s;
 }
-.botao-reserva:hover .text-reserva{/* Efeito que faz a plavra reserva apaercer quando passar p mouse por cima do botão */
-    transition-property:all;
-    transition: 1s;
-    color: #DEB887;
-    transform: scale(1);
-    transition-delay: 0.1s;
+.botao-reserva:hover .text-reserva {
+  /* Efeito que faz a plavra reserva apaercer quando passar p mouse por cima do botão */
+  transition-property: all;
+  transition: 1s;
+  color: #deb887;
+  transform: scale(1);
+  transition-delay: 0.1s;
 }
-.botao-reserva:hover .icone-reserva{/* transform para fazer o icone sumir pra a palavra reserva aparecer*/
-    transform: scale(0);
+.botao-reserva:hover .icone-reserva {
+  /* transform para fazer o icone sumir pra a palavra reserva aparecer*/
+  transform: scale(0);
 }
 /* fim da estilização do menu de navegção */
 
 /* Conteúdo da pagina inicial */
-main{ /* Organização de todo o conteúdo da pagina */
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-    padding-top:5rem;
+main {
+  /* Organização de todo o conteúdo da pagina */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding-top: 5rem;
 }
-.inicio-pagina{/* Estilizção da primeira seção da pagina */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2f2f2f;
-    padding: 2rem;
-    width: 100%;
-    gap: 5rem;
-    position: relative;
+.inicio-pagina {
+  /* Estilizção da primeira seção da pagina */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #2f2f2f;
+  padding: 2rem;
+  width: 100%;
+  height: 100vh;
+  gap: 5rem;
+  position: relative;
 }
-.imagem-inicial { /* estlização da imagem ajustando o tamanho e borda */
-    width: 70%;
-    height: 55rem;
-    padding: 2.5rem;
-    border-radius: 3rem;
-}
-.titulo-inicial{/* estilizção do texto que acompanha as imagens principais */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #f6f6f6;
+.imagem-inicial {
+  /* estlização da imagem ajustando o tamanho e borda */
+  width: 70%;
+  height: 55rem;
+  padding: 2.5rem;
+  border-radius: 3rem;
 }
 .titulo-inicial {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: px;   
+  /* estilizção do texto que acompanha as imagens principais */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f6f6f6;
 }
-.texto-img-titulo h1{
-    font-size: 8rem;
-    font-weight: 400;
-    width:48rem;   
+.titulo-inicial {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: px;
 }
-.texto-img-sub h2{
-    color: #f6f6f6;
-    font-size: 1.6rem;
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    text-align: left;
+.texto-img-titulo h1 {
+  font-size: 4rem;
+  font-weight: 400;
+  width: 100%;
 }
-.texto-img-sub p{
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
-    font-size:1.6rem;
-    color: #f6f6f6;
-    padding-top: .8rem;
-    
+.texto-img-sub h2 {
+  color: #f6f6f6;
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  text-align: left;
+}
+.texto-img-sub p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 1.6rem;
+  color: #f6f6f6;
+  padding-top: 0.8rem;
 }
 .titulo-inicial,
-.texto-img-titulo{
-    background: linear-gradient(55deg,#ec3a41,#f69d7a,#fbe393);
-    background-size: 400% 100%;
-    animation: degrade 10s linear infinite alternate;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.texto-img-titulo {
+  background: linear-gradient(55deg, #ec3a41, #f69d7a, #fbe393);
+  background-size: 400% 100%;
+  animation: degrade 10s linear infinite alternate;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-@keyframes degrade{
-    0%{
-        background-position-x: 0%;
-    }
-    100%{
-        background-position-x: 100%;
-    }
+@keyframes degrade {
+  0% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: 100%;
+  }
 }
-.texto-da-imagem p{/* estilização somente da paragrafo do texto que acompnha as imagens */
-    font-size: 2rem;
+.texto-da-imagem p {
+  /* estilização somente da paragrafo do texto que acompnha as imagens */
+  font-size: 2rem;
 }
 /* fim da primeira seção */
 
 /* segunda seção bem-vindo*/
-.inicio-bv{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap:3rem;
-    font-size: 2rem;
-    padding: 3rem;
-    font-weight: 300;
-    font-family: "Poppins", sans-serif;
-    color: #f6f6f6;
-    height:90%
+.inicio-bv {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  font-size: 2rem;
+  padding: 3rem;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  color: #f6f6f6;
+  height: 90%;
 }
-.titulo-bv{
-    position:absolute;
-    top:0;
-    bottom: .1rem;
-    text-align: center;
-    padding: 1rem;
-    font-size: 4rem;
-    font-weight: 400;
+.titulo-bv {
+  position: initial;
+  top: 0;
+  bottom: 0.1rem;
+  text-align: center;
+  padding: 1rem;
+  font-size: 4rem;
+  font-weight: 400;
 }
-.titulo-bv span{
-    color: #DEB887;
+.titulo-bv span {
+  color: #deb887;
 }
-.introducao-bv{
-    display: flex;
-    flex-direction: column;
-    padding-block: 10rem;
-    gap: 1rem;
-    color: #f6f6f6;
+.introducao-bv {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10rem;
+  gap: 1rem;
+  color: #f6f6f6;
 }
-.introducao-bv h2{
-    font-size: 3rem;
+.introducao-bv h2 {
+  font-size: 3rem;
 }
-.introducao-bv span{
-    color: #000000;
+.introducao-bv span {
+  color: #000000;
 }
-.introducao-bv p{
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
+.introducao-bv p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
 }
-.img-pratos-rj{
-    width: 100%;
-    height: 30rem;
-    border-radius: .3rem;
+.img-pratos-rj {
+  object-fit: cover;
+  width: 100%;
+  height: 30rem;
+  border-radius: 0.3rem;
 }
-.pratos-principais{
-    display: flex;
-    flex-direction: column;
-    gap: 5rem;
-    height: 90rem;
-    width: 95%;
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: rgba(0,0,0,0.4);
-    color:#000000;
-    font-family: "Poppins", sans-serif;
-    font-size: 2.2rem;
-    font-weight: 300;
+.pratos-principais {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  height: auto;
+  width: 100%;
+  padding-inline: 1rem;
+  padding-bottom: 2rem;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 300;
 }
-.pratos-principais h2{
-    color: #f6f6f6;
-    text-align: center;
-    font-family:"Poppins", sans-serif;
-    font-size: 4rem;
-    font-weight: 400;
-    padding-top: 2rem;
-    border-block: 2px;
-    text-shadow: .5rem .5rem .5rem  rgba(0,0,0,0.5);
+.pratos-principais h2 {
+  color: #f6f6f6;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 4rem;
+  font-weight: 400;
+  padding-top: 2rem;
+  border-block: 2px;
+  text-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
 }
 .prato-risoto-camarao:hover,
 .prato-feijoada:hover,
-.prato-file:hover{
-    transform: scale(1.05);
-    transition: 1s;  
+.prato-file:hover {
+  transform: scale(1.05);
 }
 .prato-risoto-camarao,
 .prato-feijoada,
-.prato-file{
-    text-align: center;
-    background-color:#f6f6f6;
-    box-shadow: 1rem 1rem 1rem 1rem rgba(0,0,0,0.5);
-    border-radius: 2.2rem 0 0 0;
-    width:29rem;
-    height:100%;
+.prato-file {
+  text-align: center;
+  background-color: #f6f6f6;
+  box-shadow: 1rem 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
+  border-radius: 2.2rem 2.2rem 0 0;
+  width: 90%;
+  height: fit-content;
+  transition: transform 1s;
 }
-.pratos{
+.pratos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7rem;
+}
+.img-risoto-camarao,
+.img-feijoada,
+.img-file {
+  width: 100%;
+  height: 29rem;
+  border-radius: 2rem 2rem 0 0;
+  border: none;
+}
+figcaption {
+  padding: 2rem;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+figcaption h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 2.2rem;
+  border-bottom: 0.2rem solid #deb887;
+  margin-bottom: 0.5rem;
+}
+.carrosel {
+  width: 100%;
+  height: 65vw;
+  animation: change 6s step-start infinite alternate-reverse;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 1rem;
+  padding-top: 3rem;
+}
+@keyframes change {
+  0% {
+    background-image: url(../img/Img-principal.png);
+    background-position: left center;
+  }
+  33.33% {
+    background-image: url(../img/delivery.png);
+    background-position: right center;
+  }
+  66.66% {
+    background-image: url(../img/reservado.png);
+    background-position: left center;
+  }
+  100% {
+    background-image: url(../img/Img-principal.png);
+    background-position: right center;
+  }
+}
+.cupons h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #f6f6f6;
+  font-size: 3.5rem;
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+.cupons {
+  padding: 5rem;
+  text-align: center;
+  width: fit-content;
+  height: auto;
+  padding-bottom: 3rem;
+  border-radius: 0.3rem;
+}
+.btn-res-ped {
+  width: 15rem;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #f6f6f6;
+  background-color: #2f2f2f;
+  border: 0.3rem solid #2f2f2f;
+  margin-left: 0.7rem;
+  margin-top: 2rem;
+}
+.btn-res-ped:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 0.3rem solid #deb887;
+}
+.cupons-desconto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding-top: 5rem;
+}
+.cupons-desconto img {
+  width: 100%;
+  box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s;
+}
+.cupons-desconto img:hover {
+  transform: scale(1.05);
+}
+.interface {
+  max-width: 100%;
+  margin: 0px auto;
+}
+footer {
+  background-color: #2f2f2f;
+  color: #f6f6f6;
+  position: relative;
+  padding-top: 2rem;
+  padding: 2rem 5rem 0.2rem 5rem;
+  text-align: center;
+  height: auto;
+}
+.footer-img img {
+  width: 13rem;
+}
+.linha-footer1 .box-linha-footer h3 {
+  color: #deb887;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  font-family: "Lato", sans-serif;
+}
+footer .linha-footer1 {
+  border-block: 1px solid #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.2rem;
+  padding: 3rem 5rem 1rem 5rem;
+}
+footer .linha-footer1 .box-linha-footer {
+  width: auto;
+}
+.linha-footer2 {
+  text-align: center;
+  padding: 0.5rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+.linha-footer1 .box-linha-footer a {
+  height: 2rem;
+  text-decoration: none;
+  display: block;
+  color: #f6f6f6;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+.links-footer a:hover {
+  color: #deb887;
+  transition: 1s;
+}
+.box-linha-footer .btn-redes a {
+  display: inline;
+}
+.box-linha-footer p {
+  height: 2rem;
+  font-size: 1.4rem;
+  font-family: "Lato", sans-serif;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.box-linha-footer .btn-redes button {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.4rem;
+  font-size: 1.4rem;
+  background-color: transparent;
+  border: 0.1rem solid #f6f6f6;
+  color: #f6f6f6;
+  cursor: pointer;
+  margin-right: 0.2rem;
+  transition: 0.9s;
+}
+.box-linha-footer .btn-redes button:hover {
+  background-color: #deb887;
+  border-color: #deb887;
+}
+.box-linha-footer iframe {
+  width: 13rem;
+  height: 11rem;
+  border-radius: 0.4rem;
+}
+
+/* Telas */
+
+@media (min-width: 700px) {
+  .inicio-pagina {
+    justify-content: space-evenly;
+    flex-direction: row;
+    height: 100vh;
+    gap: 3rem;
+  }
+  .img-pratos-rj {
+    height: fit-content;
+    width: 75%;
+  }
+
+  .inicio-bv {
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .img-pratos-rj {
+    width: 40rem;
+    height: auto;
+  }
+  .titulo-bv {
+    font-size: 3rem;
+  }
+  .introducao-bv {
+    padding: 0;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .pratos {
+    flex-direction: row;
+    gap: 1.5rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+  }
+
+  .prato-risoto-camarao,
+  .prato-feijoada,
+  .prato-file {
+    width: 40rem;
+
+    border-radius: 2.2rem 0 0 0;
+  }
+
+  .prato-risoto-camarao figure,
+  .prato-feijoada figure,
+  .prato-file figure {
+    width: fit-content;
+    height: 70rem;
+  }
+
+  .img-risoto-camarao,
+  .img-feijoada,
+  .img-file {
+    border-radius: 2.2rem 0 0 0;
+  }
+
+  .cupons-desconto {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 7rem;
-}
-.img-risoto-camarao,
-.img-feijoada,
-.img-file{
-    width: 100%;
-    height: 29rem;
-    border-radius: 2rem 0 0 0 ;
-    border:none;
-}
-figcaption{
-    padding: 2rem;
-    text-align: center;
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-size:1.6rem;
-}
-figcaption h3{
-    font-family:"Poppins", sans-serif;
-    font-weight: 400;
-    font-size: 2.2rem;
-    border-bottom: .2rem solid #DEB887;
-    margin-bottom: .5rem;
-}
-.carrosel{
-    margin-inline: 1rem;
-    margin-top: 1.5rem;
-    width: 80%;
-    height: 55rem;
-    animation: change 6s step-start infinite alternate-reverse;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 1rem;
-    padding-top: 3rem;
-
-}
-@keyframes change {
-    0%{
-    background-image: url(../img/Img-principal.png);
-    background-position: left center;  
-    }
-    33.33% {
-    background-image: url(../img/delivery.png);
-    background-position: right center;  
-    }
-    66.66%{
-    background-image: url(../img/reservado.png);
-    background-position:left center;
-    }
-    100%{
-    background-image: url(../img/Img-principal.png);
-    background-position:right center;
-    }
-} 
-.cupons h3{
-    font-family:"Poppins", sans-serif;
-    font-weight: 400;
-    color: #f6f6f6;
-    font-size: 3.5rem;
-    text-align: center;
-    padding-bottom: .5rem;   
-}
-.cupons{
-    padding: 5rem;
-    text-align: center;
-    width: 50%;
-    height: 70%;
-    padding-bottom: 3rem;
-    border-radius: .3rem;
-}
-.btn-res-ped{
-    width: 15rem;
-    padding: .8rem;
-    border: none;
-    border-radius: .4rem;
-    cursor: pointer;
-    font-family: "Lato", sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: #f6f6f6;
-    background-color:#2f2f2f;
-    border: .3rem solid #2f2f2f;
-    margin-left: .7rem;
-    margin-top: 2rem;
-}
-.btn-res-ped:hover{
-    background-color:  rgba(0,0,0,0.2);
-    border: .3rem solid #DEB887;
-}
-.cupons-desconto{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
     gap: 3rem;
     padding-top: 5rem;
+  }
+  .cupons-desconto img {
+    width: 28rem;
+  }
 }
-.cupons-desconto img {
-   width: 40rem;
-   box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.5);
-}
-.cupons-desconto img:hover{
-    transform: scale(1.05);
-    transition: 0.5s;
-}
-.interface{
-  max-width: 100%;
-  margin: 0px auto;
-}
-footer{
-   background-color: #2f2f2f;
-   color: #f6f6f6;
-   position: relative;
-   padding-top: 2rem;
-   padding: 2rem 5rem .2rem 5rem;
-   text-align: center;
-   height: 25rem;
-}
-.footer-img img{
-    width: 13rem;
+
+@media (min-width: 1000px) {
+  .menu-nav {
+    padding-inline: 4rem;
+    gap: 0rem;
+  }
+
+  .menu-nav-itens {
+    position: relative;
+  }
+  .botao-reserva {
     position: absolute;
-    left: 5rem;
-    top: 0;
-    bottom: 1rem;
-}
-.linha-footer1 .box-linha-footer h3{
-    color: #DEB887;
-    margin-bottom: 1rem;
-    font-size: 1.7rem;
-    font-family: "Lato", sans-serif;
-}
-footer .linha-footer1{
-    border-block: 1px solid #f6f6f6;
+  }
+  .menu-nav-list {
+    width: 100%;
+  }
+  .carrosel {
+    height: 80%;
+  }
+
+  .texto-img-titulo h1 {
+    font-size: 8rem;
+  }
+
+  .texto-img-titulo p {
+    font-size: 2.6rem;
+  }
+  .inicio-bv {
+    height: auto;
+  }
+
+  .introducao-bv p {
+    width: 75rem;
+  }
+
+  .img-pratos-rj {
+    width: 70rem;
+  }
+
+  .cupons-desconto img {
+    width: 47rem;
+  }
+
+  footer .linha-footer1 {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .menu-nav ul {
+    position: relative;
+    z-index: 0;
     display: flex;
-    justify-content:center ; 
-    gap: 6.2rem;
-   padding: 3rem 5rem 1rem 5rem;
-}
-footer .linha-footer1 .box-linha-footer{
-    width: 10%;
-}
-.linha-footer2{
-    text-align: center;
-    padding: .5rem;
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-size: 1.4rem;  
-}
-.linha-footer1 .box-linha-footer a{
-    height: 2rem;
-    text-decoration: none;
-    display: block;
-    color: #f6f6f6;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    font-weight: 400;
-    font-family: "Poppins", sans-serif;
-}
-.links-footer a:hover{
-    color:#DEB887;
-    transition:1s;
-}
-.box-linha-footer .btn-redes a{
-    display: inline;
-}
-.box-linha-footer p{
-    height: 2rem;
-    font-size: 1.4rem;
-    font-family: "Lato", sans-serif;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-.box-linha-footer .btn-redes button{
-    width: 3rem;
-    height: 3rem;
-    border-radius: .4rem;
-    font-size: 1.4rem;
-    background-color: transparent;
-    border: .1rem solid #f6f6f6;
-    color: #f6f6f6;
-    cursor: pointer;
-    margin-right: .2rem;
-    transition: 0.9s;
-}
-.box-linha-footer .btn-redes button:hover{
-    background-color: #DEB887;
-    border-color: #DEB887;
-}
-.box-linha-footer iframe{
-    width: 13rem;
-    height: 11rem;
-    border-radius: .4rem;
+    flex-direction: row;
+    height: auto;
+    background: initial;
+    width: 92%;
+  }
+  .btn-close,
+  .btn-open {
+    display: none;
+  }
 }
